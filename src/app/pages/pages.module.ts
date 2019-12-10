@@ -11,6 +11,7 @@ import { Router } from '../router';
 import { PagesComponent } from './pages.component';
 import { TodosModule } from '@app/todos/todos.module';
 import { TodosComponent } from './todos/todos.component';
+import { EssentialsModule } from '@app/essentials/essentials.module';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { TodosComponent } from './todos/todos.component';
     CommonModule,
     Router,
     TodosModule,
+    EssentialsModule,
   ],
   exports: [PagesComponent],
 })
