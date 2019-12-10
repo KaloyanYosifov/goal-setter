@@ -8,7 +8,8 @@ import { CommonModule } from '@angular/common';
  * Internal dependencies.
  */
 import { Router } from '../router';
-import { PagesComponent } from './pages/pages.component';
+import { PagesComponent } from './pages.component';
+import { TodosModule } from '@app/todos/todos.module';
 import { TodosComponent } from './todos/todos.component';
 
 @NgModule({
@@ -19,6 +20,7 @@ import { TodosComponent } from './todos/todos.component';
   imports: [
     CommonModule,
     Router,
+    TodosModule,
   ],
   exports: [PagesComponent],
 })
