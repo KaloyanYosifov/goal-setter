@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
 /**
  * Internal dependencies.
  */
-import { TodoService } from '@app/services/todos.service';
+import { TodosService } from '@app/services/todos.service';
 
 @Component({
     selector: 'app-todos-todos',
@@ -16,7 +16,7 @@ import { TodoService } from '@app/services/todos.service';
 export class TodosComponent implements OnInit {
 
     constructor(
-        private todoService: TodoService,
+        private todoService: TodosService,
     ) {
     }
 

@@ -7,24 +7,28 @@ import { CommonModule } from '@angular/common';
 /**
  * Internal dependencies.
  */
-import { Router } from '../router';
 import { PagesComponent } from './pages.component';
 import { TodosModule } from '@app/todos/todos.module';
 import { TodosComponent } from './todos/todos.component';
 import { EssentialsModule } from '@app/essentials/essentials.module';
+import { TodoGuardService } from '@app/guards/todo-guard.service';
+import { RouterModule } from '@app/router/router.module';
 
 @NgModule({
-  declarations: [
-    PagesComponent,
-    TodosComponent,
-  ],
-  imports: [
-    CommonModule,
-    Router,
-    TodosModule,
-    EssentialsModule,
-  ],
-  exports: [PagesComponent],
+    declarations: [
+        PagesComponent,
+        TodosComponent,
+    ],
+    imports: [
+        CommonModule,
+        RouterModule,
+        TodosModule,
+        EssentialsModule,
+    ],
+    providers: [
+        TodoGuardService,
+    ],
+    exports: [PagesComponent],
 })
 export class PagesModule {
 }

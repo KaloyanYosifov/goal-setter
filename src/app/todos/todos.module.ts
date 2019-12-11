@@ -9,9 +9,10 @@ import { CommonModule } from '@angular/common';
  */
 import { TodosComponent } from './todos.component';
 import { TodoComponent } from './todo/todo.component';
+import { TodoViewComponent } from './todo-view/todo-view.component';
 
 @NgModule({
-  declarations: [TodosComponent, TodoComponent],
+  declarations: [TodosComponent, TodoComponent, TodoViewComponent],
   imports: [
     CommonModule,
   ],

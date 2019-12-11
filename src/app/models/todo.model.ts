@@ -1,5 +1,6 @@
 export class Todo {
     constructor(
+        protected id: number,
         protected name: string,
         protected description: string,
         protected length: number,
@@ -22,6 +23,10 @@ export class Todo {
         this.length = length;
 
         return this;
+    }
+
+    getId(): number {
+        return this.id;
     }
 
     getName(): string {
