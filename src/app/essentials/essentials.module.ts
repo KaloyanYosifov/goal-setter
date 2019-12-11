@@ -9,15 +9,17 @@ import { CommonModule } from '@angular/common';
  */
 import { NavComponent } from './nav/nav.component';
 import { HeaderComponent } from './header/header.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
     HeaderComponent,
     NavComponent,
   ],
-  imports: [
-    CommonModule,
-  ],
+    imports: [
+        CommonModule,
+        RouterModule,
+    ],
   exports: [
     HeaderComponent,
   ],
