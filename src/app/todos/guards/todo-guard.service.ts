@@ -6,9 +6,7 @@ import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTr
 import { TodosService } from '@app/services/todos.service';
 import { Observable } from 'rxjs';
 
-@Injectable({
-    providedIn: 'root',
-})
+@Injectable()
 export class TodoGuardService implements CanActivate {
     constructor(
         private todosService: TodosService,

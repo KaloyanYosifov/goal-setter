@@ -1,39 +1,44 @@
 /**
  * External dependencies.
  */
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
+/**
+ * Internal dependencies.
+ */
+import { TodoInterface } from '@app/todos/interfaces/todo.interface';
 
 @Component({
     selector: 'app-todos-todo-form',
     templateUrl: './todo-form.component.html',
     styleUrls: ['./todo-form.component.scss'],
 })
-export class TodoFormComponent {
+export class TodoFormComponent implements OnChanges {
+    @Output() protected onSubmit: EventEmitter<TodoInterface> = new EventEmitter<TodoInterface>();
+
     @Input() protected name = '';
     @Input() protected description = '';
-    @Input() protected timeToRead = '';
+    @Input() protected timeToRead = 0;
 
-    @Output() protected nameInput: EventEmitter<string> = new EventEmitter<string>();
-    @Output() protected descriptionInput: EventEmitter<string> = new EventEmitter<string>();
-    @Output() protected timeToReadInput: EventEmitter<string> = new EventEmitter<string>();
+    protected nameData = '';
+    protected descriptionData = '';
+    protected timeToReadData = 0;
 
     constructor() {
     }
 
-    emitValue(event: Event, typeEvent: string): void {
-        const whiteListedEvents = [
-            'name',
-            'description',
-            'timeToRead',
-        ];
+    ngOnChanges(changes: SimpleChanges): void {
+        this.nameData = this.name;
+        this.descriptionData = this.description;
+        this.timeToReadData = this.timeToRead;
+    }
 
-        if (whiteListedEvents.indexOf(typeEvent) === -1) {
-            throw new Error(`Event type "${typeEvent}" unknown!`);
-        }
+    submitForm(event: Event) {
+        event.preventDefault();
 
-        const inputElement = (event.target as HTMLInputElement);
-        const eventEmitter = (this[`${typeEvent}Input`] as EventEmitter<string>);
-
-        eventEmitter.emit(inputElement.value);
+        this.onSubmit.emit({
+            name: this.nameData,
+            description: this.descriptionData,
+            timeToRead: this.timeToReadData,
+        });
     }
 }

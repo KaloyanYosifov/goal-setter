@@ -1,35 +1,35 @@
-<form>
+<form (submit)="submitForm($event)">
     <div class="form-group">
         <label for="todo-name">Name</label>
         <input
             type="text"
+            name="name"
             class="form-control"
             id="todo-name"
             placeholder="Enter name"
-            [value]="name"
-            (input)="emitValue($event, 'name')"
+            [(ngModel)]="nameData"
         >
     </div>
     <div class="form-group">
         <label for="todo-description">Description</label>
         <input
             type="text"
+            name="description"
             class="form-control"
             id="todo-description"
             placeholder="Enter Description"
-            [value]="description"
-            (input)="emitValue($event, 'description')"
+            [(ngModel)]="descriptionData"
         >
     </div>
     <div class="form-group">
         <label for="todo-time-to-read">Time to read</label>
         <input
-            type="text"
+            type="number"
+            name="time_to_read"
             class="form-control"
             id="todo-time-to-read"
             placeholder="Enter time to read"
-            [value]="timeToRead"
-            (input)="emitValue($event, 'timeToRead')"
+            [(ngModel)]="timeToReadData"
         >
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>

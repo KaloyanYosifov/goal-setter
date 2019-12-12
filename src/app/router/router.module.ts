@@ -11,6 +11,7 @@ import { TodosComponent } from '../pages/todos/todos.component';
 import { TodoViewComponent } from '@app/todos/todo-view/todo-view.component';
 import { TodoGuardService } from '@app/todos/guards/todo-guard.service';
 import { TodoEditComponent } from '@app/todos/todo-edit/todo-edit.component';
+import { TodoResolverService } from '@app/todos/resolvers/todo-resolver.service';
 
 const routes: Routes = [
     {
@@ -21,11 +22,17 @@ const routes: Routes = [
         path: 'todos/:id/edit',
         component: TodoEditComponent,
         canActivate: [TodoGuardService],
+        resolve: {
+            todo: TodoResolverService,
+        },
     },
     {
         path: 'todos/:id',
         component: TodoViewComponent,
         canActivate: [TodoGuardService],
+        resolve: {
+            todo: TodoResolverService,
+        },
     },
     {
         path: '',

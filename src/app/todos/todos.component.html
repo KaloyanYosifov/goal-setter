@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">
-        <div *ngFor="let todo of todoService.getTodos()" class="col-md-4">
+        <div *ngFor="let todo of todos" class="col-md-4">
             <app-todos-todo [todo]="todo"></app-todos-todo>
         </div>
     </div>
