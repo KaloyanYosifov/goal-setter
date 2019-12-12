@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Todo } from '@app/models/todo.model';
 import { TodoInterface } from '@app/todos/interfaces/todo.interface';
 import { TodosService } from '@app/services/todos.service';
@@ -14,6 +14,7 @@ export class TodoEditComponent implements OnInit {
 
     constructor(
         private currentRoute: ActivatedRoute,
+        private router: Router,
         private todosService: TodosService,
     ) {
     }
@@ -27,7 +28,7 @@ export class TodoEditComponent implements OnInit {
     public setDataToTodo(
         data: TodoInterface,
     ) {
-        //this.todo = new Todo(this.todo.getId(), name, description, timeToRead);
         this.todosService.setTodoData(this.todo.getId(), data);
+        this.router.navigate(['/todos']);
     }
 }
