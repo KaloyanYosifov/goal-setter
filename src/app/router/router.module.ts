@@ -9,12 +9,18 @@ import { RouterModule as AngularRouterModule, Routes } from '@angular/router';
  */
 import { TodosComponent } from '../pages/todos/todos.component';
 import { TodoViewComponent } from '@app/todos/todo-view/todo-view.component';
-import { TodoGuardService } from '@app/guards/todo-guard.service';
+import { TodoGuardService } from '@app/todos/guards/todo-guard.service';
+import { TodoEditComponent } from '@app/todos/todo-edit/todo-edit.component';
 
 const routes: Routes = [
     {
         path: 'todos',
         component: TodosComponent,
+    },
+    {
+        path: 'todos/:id/edit',
+        component: TodoEditComponent,
+        canActivate: [TodoGuardService],
     },
     {
         path: 'todos/:id',

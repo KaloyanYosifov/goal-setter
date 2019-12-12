@@ -11,7 +11,7 @@ import { PagesComponent } from './pages.component';
 import { TodosModule } from '@app/todos/todos.module';
 import { TodosComponent } from './todos/todos.component';
 import { EssentialsModule } from '@app/essentials/essentials.module';
-import { TodoGuardService } from '@app/guards/todo-guard.service';
+import { TodoGuardService } from '@app/todos/guards/todo-guard.service';
 import { RouterModule } from '@app/router/router.module';
 
 @NgModule({
