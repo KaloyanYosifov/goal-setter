@@ -28,7 +28,11 @@ export class TodoEditComponent implements OnInit {
     public setDataToTodo(
         data: TodoInterface,
     ) {
-        this.todosService.setTodoData(this.todo.getId(), data);
-        this.router.navigate(['/todos']);
+        try {
+            this.todosService.setTodoData(this.todo.getId(), data);
+            this.router.navigate(['/todos']);
+        } catch (exception) {
+            console.error(exception.message);
+        }
     }
 }

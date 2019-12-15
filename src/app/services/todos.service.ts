@@ -34,6 +34,14 @@ export class TodosService {
     }
 
     setTodoData(id: number, data: TodoInterface): void {
+        if (
+            !data.name ||
+            !data.description ||
+            !data.imageUrl
+        ) {
+            throw new Error('No data has been passed!');
+        }
+
         if (!this.hasTodo(id)) {
             return;
         }

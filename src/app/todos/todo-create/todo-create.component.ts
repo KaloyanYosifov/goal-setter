@@ -29,7 +29,11 @@ export class TodoCreateComponent implements OnInit {
     public setDataToTodo(
         data: TodoInterface,
     ) {
-        this.todosService.addTodo(data);
-        this.router.navigate(['/todos']);
+        try {
+            this.todosService.addTodo(data);
+            this.router.navigate(['/todos']);
+        } catch (exception) {
+            console.error(exception.message);
+        }
     }
 }
