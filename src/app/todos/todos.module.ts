@@ -16,9 +16,10 @@ import { TodoFormComponent } from './todo-form/todo-form.component';
 import { TodoResolverService } from '@app/todos/resolvers/todo-resolver.service';
 import { TodoGuardService } from '@app/todos/guards/todo-guard.service';
 import { FormsModule } from '@angular/forms';
+import { TodoCreateComponent } from './todo-create/todo-create.component';
 
 @NgModule({
-    declarations: [TodosComponent, TodoComponent, TodoViewComponent, TodoEditComponent, TodoFormComponent],
+    declarations: [TodosComponent, TodoComponent, TodoViewComponent, TodoEditComponent, TodoFormComponent, TodoCreateComponent],
     imports: [
         CommonModule,
         RouterModule,

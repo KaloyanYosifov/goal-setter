@@ -16,6 +16,7 @@ export class TodosService {
     protected todos: Todo[] = [
         new Todo(1, 'Test', 'Hello World', 30, 'https://picsum.photos/id/659/400/400'),
     ];
+    protected latestAvailableId = 1;
 
     constructor() {
     }
@@ -44,5 +45,31 @@ export class TodosService {
 
             return null;
         });
+    }
+
+    public addTodo(data: TodoInterface): Todo {
+        const todo = new Todo(this.getNextIdFor(), data.name, data.description, data.timeToRead, data.imageUrl);
+        this.todos = [
+            ...this.todos,
+            todo,
+        ];
+
+        return todo;
+    }
+
+    protected getNextIdFor(): number {
+        let todoId = this.latestAvailableId;
+
+        while (true) {
+            if (!this.hasTodo(todoId)) {
+                break;
+            }
+
+            todoId++;
+        }
+
+        this.latestAvailableId = todoId;
+
+        return todoId;
     }
 }

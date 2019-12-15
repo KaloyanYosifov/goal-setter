@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="shell">
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">
+                    Create
+                </div>
+                <!-- /.card-title -->
+            </div>
+            <!-- /.card-header -->
+
+            <div class="card-body">
+                <app-todos-todo-form
+                    (onSubmit)="setDataToTodo($event)"
+                ></app-todos-todo-form>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+    </div>
+    <!-- /.shell -->
+</div>
+<!-- /.container -->
+
