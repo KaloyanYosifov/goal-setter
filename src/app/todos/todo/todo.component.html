@@ -2,7 +2,8 @@
     <img class="card-img-top"
         alt="Thumbnail"
         style="height: 225px; width: 100%; display: block;"
-        src="https://picsum.photos/id/659/400/400">
+        [src]="todo.getImageUrl()"
+    >
 
     <div class="card-body">
         <h3 class="card-title">{{todo.getName()}}</h3>

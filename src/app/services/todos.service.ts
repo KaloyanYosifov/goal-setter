@@ -29,11 +29,11 @@ export class TodosService {
         return !!this.todos.find(todo => todo.getId() === id);
     }
 
-    public getTodo(id: number): Todo | null {
+    getTodo(id: number): Todo | null {
         return this.todos.find(todo => todo.getId() === id);
     }
 
-    public setTodoData(id: number, data: TodoInterface): void {
+    setTodoData(id: number, data: TodoInterface): void {
         if (!this.hasTodo(id)) {
             return;
         }
@@ -43,11 +43,11 @@ export class TodosService {
                 return new Todo(todo.getId(), data.name, data.description, data.timeToRead, data.imageUrl);
             }
 
-            return null;
+            return todo;
         });
     }
 
-    public addTodo(data: TodoInterface): Todo {
+    addTodo(data: TodoInterface): Todo {
         const todo = new Todo(this.getNextIdFor(), data.name, data.description, data.timeToRead, data.imageUrl);
         this.todos = [
             ...this.todos,

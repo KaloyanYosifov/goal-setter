@@ -12,11 +12,16 @@ import { TodoViewComponent } from '@app/todos/todo-view/todo-view.component';
 import { TodoGuardService } from '@app/todos/guards/todo-guard.service';
 import { TodoEditComponent } from '@app/todos/todo-edit/todo-edit.component';
 import { TodoResolverService } from '@app/todos/resolvers/todo-resolver.service';
+import { TodoCreateComponent } from '@app/todos/todo-create/todo-create.component';
 
 const routes: Routes = [
     {
         path: 'todos',
         component: TodosComponent,
+    },
+    {
+        path: 'todos/create',
+        component: TodoCreateComponent,
     },
     {
         path: 'todos/:id/edit',
