@@ -11,9 +11,7 @@
 
             <div class="card-body">
                 <app-todos-todo-form
-                    [name]="todo.getName()"
-                    [description]="todo.getDescription()"
-                    [timeToRead]="todo.getLength()"
+                    [todo]="todo"
                     (onSubmit)="setDataToTodo($event)"
                 ></app-todos-todo-form>
             </div>

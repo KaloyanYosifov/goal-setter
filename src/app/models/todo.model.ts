@@ -4,6 +4,7 @@ export class Todo {
         protected name: string,
         protected description: string,
         protected length: number,
+        protected imageUrl: string,
     ) {
     }
 
@@ -25,6 +26,12 @@ export class Todo {
         return this;
     }
 
+    setImageUrl(imageUrl: string): Todo {
+        this.imageUrl = imageUrl;
+
+        return this;
+    }
+
     getId(): number {
         return this.id;
     }
@@ -39,5 +46,9 @@ export class Todo {
 
     getLength(): number {
         return this.length;
+    }
+
+    getImageUrl(): string {
+        return this.imageUrl;
     }
 }

@@ -14,7 +14,7 @@ import { TodoInterface } from '@app/todos/interfaces/todo.interface';
 })
 export class TodosService {
     protected todos: Todo[] = [
-        new Todo(1, 'Test', 'Hello World', 30),
+        new Todo(1, 'Test', 'Hello World', 30, 'https://picsum.photos/id/659/400/400'),
     ];
 
     constructor() {
@@ -39,7 +39,7 @@ export class TodosService {
 
         this.todos = this.todos.map(todo => {
             if (todo.getId() === id) {
-                return new Todo(todo.getId(), data.name, data.description, data.timeToRead);
+                return new Todo(todo.getId(), data.name, data.description, data.timeToRead, data.imageUrl);
             }
 
             return null;

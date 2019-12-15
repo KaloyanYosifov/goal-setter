@@ -6,6 +6,7 @@ import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from
  * Internal dependencies.
  */
 import { TodoInterface } from '@app/todos/interfaces/todo.interface';
+import { Todo } from '@app/models/todo.model';
 
 @Component({
     selector: 'app-todos-todo-form',
@@ -15,21 +16,21 @@ import { TodoInterface } from '@app/todos/interfaces/todo.interface';
 export class TodoFormComponent implements OnChanges {
     @Output() protected onSubmit: EventEmitter<TodoInterface> = new EventEmitter<TodoInterface>();
 
-    @Input() protected name = '';
-    @Input() protected description = '';
-    @Input() protected timeToRead = 0;
+    @Input() protected todo: Todo = new Todo(-1, '', '', 1, '');
 
     protected nameData = '';
     protected descriptionData = '';
+    protected imageUrlData = '';
     protected timeToReadData = 0;
 
     constructor() {
     }
 
     ngOnChanges(changes: SimpleChanges): void {
-        this.nameData = this.name;
-        this.descriptionData = this.description;
-        this.timeToReadData = this.timeToRead;
+        this.nameData = this.todo.getName();
+        this.descriptionData = this.todo.getDescription();
+        this.timeToReadData = this.todo.getLength();
+        this.imageUrlData = this.todo.getImageUrl();
     }
 
     submitForm(event: Event) {
@@ -38,6 +39,7 @@ export class TodoFormComponent implements OnChanges {
         this.onSubmit.emit({
             name: this.nameData,
             description: this.descriptionData,
+            imageUrl: this.imageUrlData,
             timeToRead: this.timeToReadData,
         });
     }
