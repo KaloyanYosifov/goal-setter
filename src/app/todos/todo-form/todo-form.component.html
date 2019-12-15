@@ -43,5 +43,6 @@
             [(ngModel)]="timeToReadData"
         >
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+    <button (click)="formCanceled($event)" class="btn btn-secondary">Cancel</button>
 </form>

@@ -13,6 +13,7 @@
                 <app-todos-todo-form
                     [todo]="todo"
                     (onSubmit)="setDataToTodo($event)"
+                    (onCancel)="router.navigate(['/todos'])"
                 ></app-todos-todo-form>
             </div>
             <!-- /.card-body -->

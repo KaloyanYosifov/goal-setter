@@ -15,6 +15,7 @@ import { Todo } from '@app/models/todo.model';
 })
 export class TodoFormComponent implements OnChanges {
     @Output() protected onSubmit: EventEmitter<TodoInterface> = new EventEmitter<TodoInterface>();
+    @Output() protected onCancel: EventEmitter<void> = new EventEmitter<void>();
 
     @Input() protected todo: Todo = new Todo(-1, '', '', 1, '');
 
@@ -42,5 +43,11 @@ export class TodoFormComponent implements OnChanges {
             imageUrl: this.imageUrlData,
             timeToRead: this.timeToReadData,
         });
+    }
+
+    formCanceled(event: Event) {
+        event.preventDefault();
+
+        this.onCancel.emit();
     }
 }
