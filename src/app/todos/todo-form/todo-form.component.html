@@ -1,4 +1,4 @@
-<form (submit)="submitForm($event)">
+<form (submit)="submitForm()" #form="ngForm">
     <div class="form-group">
         <label for="todo-name">Name</label>
         <input
@@ -7,8 +7,14 @@
             class="form-control"
             id="todo-name"
             placeholder="Enter name"
-            [(ngModel)]="nameData"
+            [ngModel]="todo.getName()"
+            required
+            #nameField="ngModel"
         >
+        <p *ngIf="form.submitted && nameField.invalid" class="invalid-feedback">
+            Field is required
+        </p>
+        <!-- /.invalid-feedback -->
     </div>
     <div class="form-group">
         <label for="todo-description">Description</label>
@@ -18,31 +24,38 @@
             class="form-control"
             id="todo-description"
             placeholder="Enter Description"
-            [(ngModel)]="descriptionData"
+            [ngModel]="todo.getDescription()"
         >
     </div>
     <div class="form-group">
         <label for="todo-image">Image Url</label>
         <input
             type="text"
-            name="image-url"
+            name="imageUrl"
             class="form-control"
             id="todo-image"
             placeholder="Enter Image Url"
-            [(ngModel)]="imageUrlData"
+            [ngModel]="todo.getImageUrl()"
+            required
+            #imageField="ngModel"
         >
+        <p *ngIf="form.submitted && imageField.invalid" class="invalid-feedback">
+            Field is required
+        </p>
+        <!-- /.invalid-feedback -->
     </div>
     <div class="form-group">
         <label for="todo-time-to-read">Time to read</label>
         <input
             type="number"
-            name="time_to_read"
+            name="timeToRead"
             class="form-control"
             id="todo-time-to-read"
             placeholder="Enter time to read"
-            [(ngModel)]="timeToReadData"
+            [ngModel]="todo.getLength()"
         >
     </div>
+
     <button type="submit" class="btn btn-primary mr-2">Submit</button>
     <button (click)="formCanceled($event)" class="btn btn-secondary">Cancel</button>
 </form>
