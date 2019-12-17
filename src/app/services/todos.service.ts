@@ -36,7 +36,6 @@ export class TodosService {
     setTodoData(id: number, data: TodoInterface): void {
         if (
             !data.name ||
-            !data.description ||
             !data.imageUrl
         ) {
             throw new Error('No data has been passed!');
@@ -55,8 +54,14 @@ export class TodosService {
         });
     }
 
-    addTodo(data: TodoInterface): Todo {
-        const todo = new Todo(this.getNextIdFor(), data.name, data.description, data.timeToRead, data.imageUrl);
+    addTodo(
+        { name, description, timeToRead, imageUrl }: TodoInterface,
+    ): Todo {
+        if (!name || !imageUrl) {
+            throw new Error('Invalid data passed! Please make sure that name and imageUrl are not empty');
+        }
+
+        const todo = new Todo(this.getNextIdFor(), name, description, timeToRead, imageUrl);
         this.todos = [
             ...this.todos,
             todo,
