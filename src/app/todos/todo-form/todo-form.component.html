@@ -9,6 +9,7 @@
             placeholder="Enter name"
             [ngModel]="todo.getName()"
             required
+            appTodosAutofocusElement
             #nameField="ngModel"
         >
         <p *ngIf="form.submitted && nameField.invalid" class="invalid-feedback">

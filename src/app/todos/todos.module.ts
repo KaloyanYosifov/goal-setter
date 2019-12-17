@@ -17,9 +17,10 @@ import { TodoResolverService } from '@app/todos/resolvers/todo-resolver.service'
 import { TodoGuardService } from '@app/todos/guards/todo-guard.service';
 import { FormsModule } from '@angular/forms';
 import { TodoCreateComponent } from './todo-create/todo-create.component';
+import { AutofocusElementDirective } from './directives/autofocus-element.directive';
 
 @NgModule({
-    declarations: [TodosComponent, TodoComponent, TodoViewComponent, TodoEditComponent, TodoFormComponent, TodoCreateComponent],
+    declarations: [TodosComponent, TodoComponent, TodoViewComponent, TodoEditComponent, TodoFormComponent, TodoCreateComponent, AutofocusElementDirective],
     imports: [
         CommonModule,
         RouterModule,
