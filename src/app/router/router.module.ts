@@ -13,8 +13,9 @@ import { TodoGuardService } from '@app/todos/guards/todo-guard.service';
 import { TodoEditComponent } from '@app/todos/todo-edit/todo-edit.component';
 import { TodoResolverService } from '@app/todos/resolvers/todo-resolver.service';
 import { TodoCreateComponent } from '@app/todos/todo-create/todo-create.component';
+import { HobbyCreateComponent } from '@app/hobbies/hobby-create/hobby-create.component';
 
-const routes: Routes = [
+const todosRoutes = [
     {
         path: 'todos',
         component: TodosComponent,
@@ -39,6 +40,18 @@ const routes: Routes = [
             todo: TodoResolverService,
         },
     },
+];
+
+const hobbiesRoutes = [
+    {
+        path: 'hobbies/create',
+        component: HobbyCreateComponent,
+    },
+];
+
+const routes: Routes = [
+    ...todosRoutes,
+    ...hobbiesRoutes,
     {
         path: '',
         pathMatch: 'full',

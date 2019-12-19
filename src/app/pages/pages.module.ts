@@ -13,6 +13,7 @@ import { TodosComponent } from './todos/todos.component';
 import { EssentialsModule } from '@app/essentials/essentials.module';
 import { TodoGuardService } from '@app/todos/guards/todo-guard.service';
 import { RouterModule } from '@app/router/router.module';
+import { HobbyModule } from '@app/hobbies/hobby/hobby.module';
 
 @NgModule({
     declarations: [
@@ -23,6 +24,7 @@ import { RouterModule } from '@app/router/router.module';
         CommonModule,
         RouterModule,
         TodosModule,
+        HobbyModule,
         EssentialsModule,
     ],
     providers: [

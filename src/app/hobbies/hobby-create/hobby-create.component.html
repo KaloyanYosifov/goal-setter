@@ -1,0 +1,89 @@
+<div class="container">
+    <div class="shell">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">
+                    Create a hobby
+                </h3>
+                <!-- /.card-title -->
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+                <form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+                    <div class="form-group">
+                        <label for="hobby-name">Name</label>
+                        <input
+                            id="hobby-name"
+                            type="text"
+                            class="form-control"
+                            formControlName="name"
+
+                        >
+                        <!-- /.form-control -->
+                    </div>
+                    <!-- /.form-group -->
+
+                    <div class="form-group" formArrayName="hobbies">
+                        <div class="container">
+                            <div class="row">
+                                <label for="hobby-name">Hobbies</label>
+                            </div>
+                            <!-- /.row -->
+                            <div class="row">
+                                <button type="button" class="btn btn-warning" (click)="addAHobby()">Add a hobby</button>
+                                <!-- /.btn btn-warning -->
+                            </div>
+                            <!-- /.row -->
+
+                            <div *ngIf="hasHobbies" class="row">
+                                <div class="container mt-4">
+                                    <div
+                                        *ngFor="let hobby of getHobbies(); let hobbyFormControlName=index"
+                                        class="row mb-2"
+                                    >
+                                        <input
+                                            type="text"
+                                            class="form-control"
+                                            name="hobby"
+                                            placeholder="Enter a hobby"
+                                            [formControlName]="hobbyFormControlName"
+                                        >
+                                    </div>
+                                    <!-- /.form-group -->
+                                </div>
+                                <!-- /.container -->
+                            </div>
+                            <!-- /.row -->
+                        </div>
+                        <!-- /.rows -->
+                        <!-- /.form-control -->
+                    </div>
+                    <!-- /.form-group -->
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-danger">Submit</button>
+                        <!-- /.btn btn-primary -->
+                    </div>
+                    <!-- /.form-actions -->
+
+                    <p *ngIf="isFormInvalidAfterSubmit" class="help-text text-danger mt-4">
+                        Please enter at least one hobby and enter a name!
+                    </p>
+                    <!-- /.help-text text-danger -->
+                </form>
+                <!-- /.form -->
+
+                <div *ngIf="form.valid && this.submitted" class="mt-4">
+                    <p *ngFor="let name of getFormValueKeys">
+                        {{name}}: {{form.value[name]}}
+                    </p>
+                </div>
+                <!-- /.data -->
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+    </div>
+    <!-- /.shell -->
+</div>
+<!-- /.container -->
