@@ -44,7 +44,7 @@ export class HobbyCreateComponent implements OnInit {
         return this.form.invalid && this.submitted;
     }
 
-    get getFormValueKeys(): Array {
+    get getFormValueKeys(): string[] {
         return Object.keys(this.form.value);
     }
 }
